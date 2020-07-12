@@ -1,11 +1,16 @@
+#import pdb
 
 def printTodoList(inputlist: list) -> type(None):
     for x in inputlist:
         print(x + "\n")
 
-def addTodoList() -> type(None):
-    answer = input('What do you want to add to your todo list?')
+def addTodoList() -> str:
+    answer = input('What do you want to add to your todo list?\n')
+    return answer
 
+def delTodoList() -> str:
+    answer = input('What do you want to delete to your todo list?\n')
+    return answer
 
 def main():
     todolist = []
@@ -17,7 +22,13 @@ def main():
     3. Quit?\n"""
     )
 
-    if answer == 1:
+
+    if answer == "1":
+        added = addTodoList()
+        todolist.append(added)
+
+    if answer == "2":
+        deleted = delTodoList()
 
     printTodoList(todolist)
 
