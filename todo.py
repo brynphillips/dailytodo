@@ -1,12 +1,18 @@
 #import pdb
+from typing import IO
 
-def printTodoList(inputlist: list) -> type(None):
-    for x in inputlist:
-        print(f'{inputlist.index(x) + 1}. {x}\n')
+def printTodoList() -> type(None):
+    readlist = open('todo.txt', 'r')
+    for lines in readlist:
+        print(f'{lines}')
+    #for x in readlist:
+        #print(f'{index(x) + 1}. x')
 
-def addTodoList() -> str:
+def addTodoList() -> type(None):
     answer = input('What do you want to add to your todo list?\n')
-    return answer
+    todolist = open('todo.txt', mode='a', newline='')
+    todolist.write(answer + '\n')
+    return
 
 def delTodoList() -> str:
     answer = input('What do you want to delete to your todo list?\n')
@@ -23,7 +29,8 @@ def initask():
     return answer
 
 def main():
-    todolist = []
+
+#todofile write
 #initask
 
     while True:
@@ -31,11 +38,10 @@ def main():
 
 # answers
         if answer == '0':
-            printTodoList(todolist)
+            printTodoList()
 
         if answer == '1':
-            added = addTodoList()
-            todolist.append(added)
+            addTodoList()
 
         if answer == '2':
             deleted = delTodoList()
